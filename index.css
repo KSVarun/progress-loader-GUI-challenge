@@ -24,6 +24,11 @@
 }
 
 #loader-line {
-  stroke: blue;
+  stroke: #fff;
+  fill: none;
+  stroke-width: 3px;
+  stroke-dashoffset: 400;
+  stroke-dasharray: 400;
+  transition: stroke-dasharray ease-in-out 0.5s;
   stroke-linecap: round;
 }
