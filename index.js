@@ -5,28 +5,18 @@ const loadBtn = document.getElementById('load-btn');
 const loaderLine = document.getElementById('loader-line');
 
 // 400 is 0
-let interval = 0;
 
 loadBtn.addEventListener('click', () => {
-  if (interval) {
+  if (loaderLine.classList.contains('load')) {
+    loaderLine.classList.remove('load');
     return;
   }
-  interval = setInterval(() => {
-    const currentProgress = loaderLine.style.strokeDasharray;
-    if (Number(currentProgress) === 0 || Number(currentProgress) >= 300) {
-      loaderLine.style.strokeDasharray = '200';
-      return;
-    }
-    if (Number(currentProgress) === 200) {
-      loaderLine.style.strokeDasharray = '300';
-    }
-  }, 500);
+  loaderLine.classList.add('load');
 });
 
 incBtn.addEventListener('click', () => {
-  if (interval) {
-    clearInterval(interval);
-    interval = 0;
+  if (loaderLine.classList.contains('load')) {
+    loaderLine.classList.remove('load');
     loaderLine.style.strokeDasharray = '426';
     return;
   }
@@ -41,9 +31,8 @@ incBtn.addEventListener('click', () => {
 });
 
 decBtn.addEventListener('click', () => {
-  if (interval) {
-    clearInterval(interval);
-    interval = 0;
+  if (loaderLine.classList.contains('load')) {
+    loaderLine.classList.remove('load');
   }
   const currentProgress = loaderLine.style.strokeDasharray;
   if (Number(currentProgress) > 400) {
@@ -52,9 +41,8 @@ decBtn.addEventListener('click', () => {
 });
 
 resetBtn.addEventListener('click', () => {
-  if (interval) {
-    clearInterval(interval);
-    interval = 0;
+  if (loaderLine.classList.contains('load')) {
+    loaderLine.classList.remove('load');
   }
   loaderLine.style.strokeDasharray = '400';
 });

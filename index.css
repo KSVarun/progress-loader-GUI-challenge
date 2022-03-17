@@ -23,6 +23,10 @@
   margin-bottom: 20px;
 }
 
+.load {
+  animation: load 1s ease-in-out infinite;
+}
+
 #loader-line {
   stroke: #fff;
   fill: none;
@@ -31,4 +35,16 @@
   stroke-dasharray: 400;
   transition: stroke-dasharray ease-in-out 0.5s;
   stroke-linecap: round;
+}
+
+@keyframes load {
+  0% {
+    stroke-dasharray: 170;
+  }
+  50% {
+    stroke-dasharray: 270;
+  }
+  100% {
+    stroke-dasharray: 170;
+  }
 }
