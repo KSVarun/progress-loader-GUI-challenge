@@ -27,10 +27,16 @@
   animation: load 1s ease-in-out infinite;
 }
 
+#path {
+  stroke-width: 6px;
+  stroke: #000;
+  stroke-linecap: round;
+}
+
 #loader-line {
   stroke: #fff;
   fill: none;
-  stroke-width: 3px;
+  stroke-width: 6px;
   stroke-dashoffset: 400;
   stroke-dasharray: 400;
   transition: stroke-dasharray ease-in-out 0.5s;
