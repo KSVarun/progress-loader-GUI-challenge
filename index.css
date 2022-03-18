@@ -5,14 +5,62 @@
   box-sizing: border-box;
 }
 
+* {
+  /*light*/
+  --shadow-color: 220 3% 15%;
+  --shadow-strength: 1%;
+  --progress-container-bg-color: white;
+  --load-path: hsl(228 100% 90%);
+  --loader: hsl(228 100% 50%);
+  --bg-color: var(--gray-0);
+  --text1: var(--gray-7);
+  --inc-btn-color: hsl(222deg 97% 37%);
+  --inc-btn-border-color: hsl(222deg 97% 37%);
+  --inc-btn-hover-color: hsl(222deg 61% 80%);
+  --dec-btn-color: hsl(222deg 28% 38%);
+  --dec-btn-border-color: hsl(222deg 28% 38%);
+  --dec-btn-hover-color: hsl(222deg 14% 75%);
+  --complete-btn-hover-color: hsl(228deg 57% 82%);
+  --reset-btn-color: hsl(0deg 49% 49%);
+  --reset-btn-border-color: hsl(0deg 49% 49%);
+  --reset-btn-hover-color: hsl(0deg 40% 88%);
+  --btn-background: white;
+  --load-btn-hover-color: hsl(0deg 0% 87%);
+}
+
+@media (prefers-color-scheme: dark) {
+  * {
+    /*dark*/
+    --shadow-strength: 25%;
+    --shadow-color: 220 40% 2%;
+    --progress-container-bg-color: var(--gray-8);
+    --load-path: hsl(228 20% 30%);
+    --loader: hsl(228 100% 75%);
+    --bg-color: var(--surface-4);
+    --text1: var(--gray-4);
+    --inc-btn-color: hsl(222deg 98% 79%);
+    --inc-btn-border-color: hsl(222deg 98% 79%);
+    --inc-btn-hover-color: hsl(222deg 42% 41%);
+    --dec-btn-color: hsl(222deg 35% 72%);
+    --dec-btn-border-color: hsl(222deg 35% 72%);
+    --dec-btn-hover-color: hsl(222deg 7% 34%);
+    --complete-btn-hover-color: hsl(228deg 73% 37%);
+    --load-btn-color: var(--gray-4);
+    --load-btn-hover-color: hsl(0deg 0% 42%);
+    --btn-background: var(--gray-8);
+  }
+}
+
 :root {
   --gray-0: #f8f9fa;
   --gray-4: #ced4da;
   --gray-7: #495057;
   --gray-8: #343a40;
   --surface-4: #212529;
-  --shadow-color: 220 3% 15%;
-  --shadow-strength: 1%;
+  --bg-transition: background 0.2s;
+  --btn-padding: 10px;
+  --btn-border-radius: 2px;
+
   --shadow-5: 0 -1px 2px 0 hsl(var(--shadow-color) /
           calc(var(--shadow-strength) + 2%)),
     0 2px 1px -2px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 3%)),
@@ -22,26 +70,6 @@
     0 40px 40px -2px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 7%));
 }
 
-* {
-  /*light*/
-  --progress-container-bg-color: white;
-  --load-path: hsl(228 100% 90%);
-  --loader: hsl(228 100% 50%);
-  --bg-color: var(--gray-0);
-  --text1: var(--gray-7);
-}
-
-@media (prefers-color-scheme: dark) {
-  * {
-    /*dark*/
-    --progress-container-bg-color: var(--gray-8);
-    --load-path: hsl(228 20% 30%);
-    --loader: hsl(228 100% 75%);
-    --bg-color: var(--surface-4);
-    --text1: var(--gray-4);
-  }
-}
-
 .container {
   height: 100vh;
   width: 100vw;
@@ -49,7 +77,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding-block: 20px;
+  padding: 20px 0px;
   background-color: var(--bg-color);
 }
 
@@ -91,6 +119,64 @@
   stroke-dasharray: 400;
   transition: stroke-dasharray ease-in-out 0.25s;
   stroke-linecap: round;
+}
+
+.btn {
+  padding: var(--btn-padding);
+  border: 1px solid var(--gray-4);
+  border-radius: var(--btn-border-radius);
+  color: var(--gray-7);
+  cursor: pointer;
+  transition: var(--bg-transition);
+}
+
+#inc-btn {
+  color: var(--inc-btn-color);
+  border-color: var(--inc-btn-border-color);
+  background: var(--btn-background);
+}
+
+#inc-btn:hover {
+  background: var(--inc-btn-hover-color);
+}
+
+#dec-btn {
+  color: var(--dec-btn-color);
+  border-color: var(--dec-btn-border-color);
+  background: var(--btn-background);
+}
+
+#dec-btn:hover {
+  background: var(--dec-btn-hover-color);
+}
+
+#complete-btn {
+  color: var(--loader);
+  border-color: var(--loader);
+  background: var(--btn-background);
+}
+
+#complete-btn:hover {
+  background: var(--complete-btn-hover-color);
+}
+
+#reset-btn {
+  color: var(--reset-btn-color);
+  border-color: var(--reset-btn-border-color);
+  background: var(--btn-background);
+}
+
+#reset-btn:hover {
+  background: var(--reset-btn-hover-color);
+}
+
+#load-btn {
+  color: var(--load-btn-color);
+  background: var(--btn-background);
+}
+
+#load-btn:hover {
+  background: var(--load-btn-hover-color);
 }
 
 @keyframes load {
