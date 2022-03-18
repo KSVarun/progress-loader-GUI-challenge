@@ -57,10 +57,11 @@
   --gray-7: #495057;
   --gray-8: #343a40;
   --surface-4: #212529;
+  --transition-time: 0.5s;
+  --animation-time: 1s;
   --bg-transition: background 0.2s;
   --btn-padding: 10px;
   --btn-border-radius: 2px;
-
   --shadow-5: 0 -1px 2px 0 hsl(var(--shadow-color) /
           calc(var(--shadow-strength) + 2%)),
     0 2px 1px -2px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 3%)),
@@ -102,7 +103,7 @@
 }
 
 .load {
-  animation: load 1s ease-in-out infinite;
+  animation: load var(--animation-time) ease-in-out infinite;
 }
 
 #path {
@@ -117,7 +118,7 @@
   stroke-width: 6px;
   stroke-dashoffset: 400;
   stroke-dasharray: 400;
-  transition: stroke-dasharray ease-in-out 0.25s;
+  transition: stroke-dasharray ease-in-out var(--transition-time);
   stroke-linecap: round;
 }
 
@@ -128,6 +129,7 @@
   color: var(--gray-7);
   cursor: pointer;
   transition: var(--bg-transition);
+  margin-right: 20px;
 }
 
 #inc-btn {
