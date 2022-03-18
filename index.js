@@ -66,3 +66,14 @@ resetBtn.addEventListener('click', async () => {
   await sleep(sleepTime);
   loaderLine.style.strokeDasharray = '400';
 });
+
+async function init() {
+  loadBtn.click();
+  await sleep(2000);
+  for (i = 0; i < 16; i++) {
+    incBtn.click();
+    await sleep(1000);
+  }
+}
+
+init();
