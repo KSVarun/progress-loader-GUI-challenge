@@ -13,6 +13,7 @@ function sleep(time) {
 
 // 400 is 0
 const sleepTime = 100;
+let initialLoad = true;
 
 loadBtn.addEventListener('click', () => {
   loaderLine.style.strokeDasharray = '400';
@@ -41,6 +42,7 @@ incBtn.addEventListener('click', async () => {
 });
 
 decBtn.addEventListener('click', () => {
+  initialLoad = false;
   if (loaderLine.classList.contains('load')) {
     loaderLine.classList.remove('load');
     return;
@@ -52,6 +54,7 @@ decBtn.addEventListener('click', () => {
 });
 
 completeBtn.addEventListener('click', async () => {
+  initialLoad = false;
   if (loaderLine.classList.contains('load')) {
     loaderLine.classList.remove('load');
   }
@@ -60,6 +63,7 @@ completeBtn.addEventListener('click', async () => {
 });
 
 resetBtn.addEventListener('click', async () => {
+  initialLoad = false;
   if (loaderLine.classList.contains('load')) {
     loaderLine.classList.remove('load');
   }
@@ -71,8 +75,10 @@ async function init() {
   loadBtn.click();
   await sleep(2000);
   for (i = 0; i < 6; i++) {
-    incBtn.click();
-    await sleep(1000);
+    if (initialLoad) {
+      incBtn.click();
+      await sleep(1000);
+    }
   }
 }
 
