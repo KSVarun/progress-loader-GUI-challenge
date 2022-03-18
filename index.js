@@ -27,16 +27,16 @@ incBtn.addEventListener('click', async () => {
   if (loaderLine.classList.contains('load')) {
     loaderLine.classList.remove('load');
     await sleep(sleepTime);
-    loaderLine.style.strokeDasharray = '426';
+    loaderLine.style.strokeDasharray = '466';
     return;
   }
   const currentProgress = loaderLine.style.strokeDasharray;
   if (Number(currentProgress) === 0) {
-    loaderLine.style.strokeDasharray = '426';
+    loaderLine.style.strokeDasharray = '466';
     return;
   }
   if (Number(currentProgress) < 790) {
-    loaderLine.style.strokeDasharray = `${Number(currentProgress) + 26}`;
+    loaderLine.style.strokeDasharray = `${Number(currentProgress) + 66}`;
   }
 });
 
@@ -47,7 +47,7 @@ decBtn.addEventListener('click', () => {
   }
   const currentProgress = loaderLine.style.strokeDasharray;
   if (Number(currentProgress) > 400) {
-    loaderLine.style.strokeDasharray = `${Number(currentProgress) - 26}`;
+    loaderLine.style.strokeDasharray = `${Number(currentProgress) - 66}`;
   }
 });
 
@@ -70,7 +70,7 @@ resetBtn.addEventListener('click', async () => {
 async function init() {
   loadBtn.click();
   await sleep(2000);
-  for (i = 0; i < 16; i++) {
+  for (i = 0; i < 6; i++) {
     incBtn.click();
     await sleep(1000);
   }
